@@ -1,2 +1,2 @@
-# minipaint.github.io
-Page for hosting documentation for CS321 MiniPaint Java application.
+# minipaint
+A basic clone of a Paint drawing application implemented in Java with the Swing GUI toolkit.
