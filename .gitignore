@@ -1,3 +1,6 @@
+# os-generated files
 .github
+*.DS_Store
+
 Solo\ Sprint\ 1\ Report.docx
 src/MiniPaintBad.java
