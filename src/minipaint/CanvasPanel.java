@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+
 import minipaint.tools.*;
 
 /**
@@ -84,6 +85,13 @@ class CanvasPanel extends JPanel {
                 cursor.setLastY(cursor.getCurY());
                 repaint();
             }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                cursor.setCurX(e.getX());
+                cursor.setCurY(e.getY());
+                repaint();
+            }
         });
     }
 
@@ -132,6 +140,7 @@ class CanvasPanel extends JPanel {
         super.paintComponent(g);
         ensureLayer();
         g.drawImage(layer, 0, 0, null);
+        currentTool.renderIcon(g, cursor);
 
         if (cursor.getDragging() && currentTool instanceof LivePreview) {
             ((LivePreview) currentTool).drawPreview(g, cursor);

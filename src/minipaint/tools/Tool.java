@@ -1,6 +1,8 @@
 package minipaint.tools;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
 import minipaint.MouseCursor;
 
 /**
@@ -11,6 +13,9 @@ public abstract class Tool {
     protected float strokeSize;
     /** The color used by the tool for drawing. */
     protected Color color;
+
+    /** The cursor icon for the tool */
+    protected BufferedImage cursorIcon;
 
     /**
      * Sets the stroke size for the tool.
@@ -68,4 +73,12 @@ public abstract class Tool {
      * @param cursor The state of the mouse cursor.
      */
     public abstract void onMouseDragged(Graphics2D g2, MouseCursor cursor);
+
+
+    public void renderIcon(Graphics g, MouseCursor cursor){
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.drawImage(this.cursorIcon, cursor.getCurX(), cursor.getCurY(), null);
+
+    }
 }

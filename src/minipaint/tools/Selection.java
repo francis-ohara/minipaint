@@ -1,6 +1,11 @@
 package minipaint.tools;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import minipaint.MouseCursor;
 
 /**
@@ -17,6 +22,11 @@ public class Selection extends Tool implements LivePreview {
     public Selection() {
         this.strokeSize = 1.5f;
         this.color = Color.BLACK;
+        try {
+            this.cursorIcon = ImageIO.read(new File("assets/selection_icon.png"));
+        } catch (IOException e) {
+            System.out.println("Error setting Selection tool icon: " + e.getMessage());
+        }
     }
 
     /**
@@ -47,7 +57,8 @@ public class Selection extends Tool implements LivePreview {
     }
 
     /**
-     * Draws a temporary dashed rectangle for previewing the selection border while dragging the mouse.
+     * Draws a temporary dashed rectangle for previewing the selection border while
+     * dragging the mouse.
      */
     public void drawPreview(Graphics g, MouseCursor cursor) {
         Graphics2D g2 = (Graphics2D) g.create();

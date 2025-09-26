@@ -1,6 +1,11 @@
 package minipaint.tools;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import minipaint.MouseCursor;
 
 /**
@@ -13,12 +18,17 @@ public class Brush extends Tool {
     public Brush() {
         this.strokeSize = 8f;
         this.color = Color.BLACK;
+        try {
+            this.cursorIcon = ImageIO.read(new File("assets/brush_icon.png"));
+        } catch (IOException e) {
+            System.out.println("Error setting Brush tool icon: " + e.getMessage());
+        }
     }
 
     /**
      * Draws a single point when the mouse is pressed.
      * 
-     * @param g2 The graphics context to draw on.
+     * @param g2     The graphics context to draw on.
      * @param cursor The state of the mouse cursor.
      */
     @Override
@@ -32,7 +42,7 @@ public class Brush extends Tool {
     /**
      * Draws the final line segment when the mouse is released.
      * 
-     * @param g2 The graphics context to draw on.
+     * @param g2     The graphics context to draw on.
      * @param cursor The state of the mouse cursor.
      */
     @Override
@@ -44,9 +54,10 @@ public class Brush extends Tool {
     }
 
     /**
-     * Draws a line segment from the last position to the current position while dragging.
+     * Draws a line segment from the last position to the current position while
+     * dragging.
      * 
-     * @param g2 The graphics context to draw on.
+     * @param g2     The graphics context to draw on.
      * @param cursor The state of the mouse cursor.
      */
     @Override
