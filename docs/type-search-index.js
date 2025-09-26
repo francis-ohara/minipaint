@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"minipaint.tools","l":"Brush"},{"p":"minipaint.tools","l":"Eraser"},{"p":"minipaint.tools","l":"LivePreview"},{"p":"minipaint","l":"MiniPaint"},{"p":"minipaint","l":"MouseCursor"},{"p":"minipaint.tools","l":"Selection"},{"p":"minipaint.tools","l":"Tool"}];updateSearchResults();
